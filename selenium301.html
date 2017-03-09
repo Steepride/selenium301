@@ -115,13 +115,12 @@
         <aside class="notes"></aside>
         </section>
                 <section>
-    <h3>Parallelization</h3>
-      <p>Avoid dependencies between tests</p>
-            <ul><li>If you chain tests together, when one at the top fails, then they will all fail.</li></ul>
-          <p>Use Frameworks</p>
-            <ul><li>Frameworks include helpful libraries and functionality that can help you make the most of parallelization.</li></ul>
-            <p>Use Page Objects</p>
-            <ul><li>Page objects help to abstract repeatable actions and insulate them from test code</li></ul>
+    <h3>Scaling Tips</h3>
+    <ul>
+        <li>Page Objects for Agile Testing</li>
+        <li>Frameworks for Parallelization</li>
+        <li>Jenkins for Automated Builds</li>
+          </ul>
       <aside class="notes">
           <p>Running tests in parallel is the secret Sauce for accelerating your development process and creating a continuous integration/continuous delivery pipeline.</p>
           <p>One of the main features that Sauce Labs offers is parallelization, the ability to run serveral scripts at once on a variety of platforms. Since tests and commands are sent remotely, these tests take longer to run individually, but with parallelization, we can run them all at once. That is, we can start them all at the same time, which cuts down on the total time tests would normally take, saving time and money for your teams and business.</p>
@@ -633,6 +632,30 @@ job-name=%2$s",(((RemoteWebDriver) driver).getSessionId()).toString(),\
 To make sure that your test results and Sauce jobs are associated properly, you need to output the session id to stdout. For example, this is the code you would use to output the session id to the Java stdout. </aside>
                   </section>
 
+                  <section data-state="lab">
+      <h3>Lab 3.1: Setup Jenkins Job</h3>
+
+        <ol>
+          <li></li>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+                  </section>
+
       <section>
         <section>
         <h3>Testing in Isolation</h3>
@@ -663,16 +686,34 @@ To make sure that your test results and Sauce jobs are associated properly, you 
         </ul>
         <aside class="notes"></aside>
       </section>
-
-      <section>
-        <h3>Testing in Isolation</h3>
+</section>
+      
+<section>
+  <section>
+        <h3>'Shift Left' Testing</h3>
         <aside class="notes"></aside>
       </section>
 
       <section>
-        <h3>Shift Left</h3>
+        <h3>Traditional Testing</h3>
         <aside class="notes"></aside>
       </section>
+
+      <section>
+        <h3>Incremental Testing</h3>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Agile/DevOps Testing</h3>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Model-Based Testing</h3>
+        <aside class="notes"></aside>
+      </section>
+  </section>
 
     <section>
   <h3>Test Run Best Practices</h3>
@@ -683,6 +724,54 @@ To make sure that your test results and Sauce jobs are associated properly, you 
     <li>Separate Functional Tests from Performance Tests</li>
   </ul>
 </section>
+
+<section data-state="lab">
+      <h3>Demo 3.2: Setup Build Pipeline</h3>
+
+        <ol>
+          <li></li>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+                  </section>
+
+                  <section data-state="lab">
+      <h3>Demo 3.3: Setup Build Pipeline</h3>
+
+        <ol>
+          <li></li>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+                  </section>
                 
 
 <!-- Test Data Management -->
@@ -700,16 +789,6 @@ To make sure that your test results and Sauce jobs are associated properly, you 
           </ul>
         <aside class="notes"></aside>
         </section>
-
-
-        
-               
-                
-               
-                
-                    
-                  
-                
 
                  
 
