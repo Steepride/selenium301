@@ -1,0 +1,34 @@
+####Notes: Either replace %SAUCE_USERNAME% and %SAUCE_KEY% with hard-coded
+values or create environment variables.
+
+Lab 1:
+cd Desktop\SC_Proxy\bin
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% -i readytech_tunnel
+
+Lab 2:
+curl -u %SAUCE_USERNAME%:%SAUCE_KEY% -X POST -H "Content-Type:text/x-shellscript" https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/disable_fraud.sh?overwrite=true --data-binary @\Users\Neil\Desktop\disable_fraud.sh
+##Test to see if the file is indeed on sauce storage###
+curl -u %SAUCE_USERNAME%:%SAUCE_KEY% https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%
+
+Lab 3:
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% -i <tunnel_id>
+curl https://saucelabs.com/rest/v1/users/%SAUCE_USERNAME% -u %SAUCE_USERNAME:%SAUCE_KEY%
+curl -u %SAUCE_USERNAME%:%SAUCE_KEY% https://saucelabs.com/rest/v1/%SAUCE_USERNAME%/jobs
+curl -u %SAUCE_USERNAME%:%SAUCE_KEY% https://saucelabs.com/rest/v1/%SAUCE_USERNAME%/jobs?limit=5
+curl -u %SAUCE_USERNAME%:%SAUCE_KEY% -X PUT https://saucelabs.com/rest/v1/%SAUCE_USERNAME%/jobs/<job_id>/stop
+
+Lab 5:
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc1.pid --logfile \Users\Neil\Desktop\sc1.log --scproxy-port 29997 --se-port 4446 -i my-tun1
+
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc2.pid --logfile \Users\Neil\Desktop\sc2.log --scproxy-port 29998 --se-port 4447 -i my-tun2
+
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc3.pid --logfile \Users\Neil\Desktop\sc3.log --scproxy-port 29999 --se-port 4448 -i my-tun3
+
+############################2nd part##########################
+
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc1.pid --logfile \Users\Neil\Desktop\sc1.log --scproxy-port 29997 --se-port 4446 -i pooled-tunnel --no-remove-colliding-tunnels --wait-tunnel-shutdown
+
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc1.pid --logfile \Users\Neil\Desktop\sc1.log --scproxy-port 29998 --se-port 4447 -i pooled-tunnel --no-remove-colliding-tunnels --wait-tunnel-shutdown
+
+sc.exe -u %SAUCE_USERNAME% -k %SAUCE_KEY% --pidfile \Users\Neil\Desktop\sc1.pid --logfile \Users\Neil\Desktop\sc1.log --scproxy-port 29999 --se-port 4448 -i pooled-tunnel --no-remove-colliding-tunnels --wait-tunnel-shutdown
+

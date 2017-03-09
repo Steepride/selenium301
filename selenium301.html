@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Sauce Laboratories - Selenium 301 </title>
+
+		<meta name="description" content="Learn how to configure, test, and manage test in your Sauce Lab enterprise environment">
+		<meta name="author" content="James Tacker">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sauce.css" id="theme">
+
+    <!--favicon-->
+        <link rel="shortcut icon" href="assets/images/sauce_favicon.ico" type="image/x-icon" />
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+	  <div class="reveal">
+
+        <style>
+          .reveal .slides { text-align: left; }
+          .reveal .slides h1 { text-align: center; }
+          .reveal .slides h2 { text-align: center; }
+          .reveal .slides h3 { text-align: center; font-variant: none; text-transform: none;}
+        </style>
+		<!-- Any section element inside of this container is displayed as a slide -->
+
+        <img src="assets/images/saucelabslogo.png" style="border:0; width:100px; height:100px; background:none; position:absolute; left:0; top:0;">
+        <img id="lab_pic" src="assets/images/Laboratory2.png" style="visibility:hidden; border:0; width:200px; height:200px; background:none; position:absolute; right:0; top:0;">
+
+	        <div class="slides">
+
+              <section data-background="rgb(226, 35, 26)">
+                <h1>Selenium 301</h1>
+
+                <p style="text-align:center">
+	              <small><i>Testing at the speed of Awesome</i></small>
+                </p>
+
+                <p style="text-align:center">
+                  <small>
+                    <small>Using Reveal.js</small>
+                  </small>
+                </p>
+              </section>
+
+                       <section>
+    <h3>Trainer Introduction</h3>
+<!-- left column-->
+                    <div style="float:left;width:50%;" class="centered">
+                      
+                      <p><strong>James Tacker</strong></p>
+                      <p>Tech Consultant and Trainer</p>
+                      <p>Previous Work:</p>
+                      <ul>
+                        <li>Atlassian</li>
+                        <li>NGINX</li>
+                        <li>New Relic</li>
+                      </ul>
+                      <p><a href="mailto:james.tacker@servicerocket.com">james.tacker@servicerocket.com</a></p>
+            
+                    </div>
+<!-- right column-->
+                    <div style="float:right;width:40%;padding-right:0px;">
+                      <img src="assets/images/picture1.png" style="border:0;background:none; left:0; top:0;">
+                    </div>
+        </section>
+
+              <section>
+                <h3>Agenda</h3>
+
+                <div style="text-align:left;">
+                    <img src="assets/images/sauceAgenda.png" style="border:none; background:none; width:80%">
+                  </div>
+                
+              </section>
+
+<!-- Scaling Automated Tests-->
+  <section data-background="rgb(226, 35, 26)">
+    <h2>Scaling Automated Tests</h2>
+      <aside class="notes"></aside>
+      </section>
+
+    <section>
+      <h3>Module Objectives</h3>
+        <p>This module enables you to:</p>
+          <ul>
+          <li>Optimize your parallelized test builds</li>
+          <li>Abstract components into page objects in order to onboard team members quickly</li>
+          </ul>
+        <aside class="notes"></aside>
+        </section>
+                <section>
+    <h3>Parallelization</h3>
+      <p>Avoid dependencies between tests</p>
+            <ul><li>If you chain tests together, when one at the top fails, then they will all fail.</li></ul>
+          <p>Use Frameworks</p>
+            <ul><li>Frameworks include helpful libraries and functionality that can help you make the most of parallelization.</li></ul>
+            <p>Use Page Objects</p>
+            <ul><li>Page objects help to abstract repeatable actions and insulate them from test code</li></ul>
+      <aside class="notes">
+          <p>Running tests in parallel is the secret Sauce for accelerating your development process and creating a continuous integration/continuous delivery pipeline.</p>
+          <p>One of the main features that Sauce Labs offers is parallelization, the ability to run serveral scripts at once on a variety of platforms. Since tests and commands are sent remotely, these tests take longer to run individually, but with parallelization, we can run them all at once. That is, we can start them all at the same time, which cuts down on the total time tests would normally take, saving time and money for your teams and business.</p>
+          <p>It's good to avoid dependencies between tests. This goes along with the atomic testing strategy, where we want to create autonomous tests, so that they don't depend on each other, and when one fails, then we know exactly what failed.</p>
+      </aside>
+    </section>
+            
+<section>
+  <h3>Page Object Overview</h3>
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <h3>Page Base</h3>
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <h3>Repeatable Actions</h3>
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <h3>Inheritence</h3>
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <h3>Page Object Best Practices</h3>
+  <aside class="notes"></aside>
+</section>
+
+    <section>
+      <h3>Test Automation Frameworks</h3>
+        <ul><p>Java Frameworks:</p>
+          <li>JUnit</li>
+          <li>TestNG</li>
+        </ul>
+        <ul><p>Other Frameworks:</p>
+          <li>Python: <a href="https://github.com/saucelabs-sample-test-frameworks/Python-Pytest-Selenium"target="_blank">Py.test</a></li>
+          <li>Ruby: <a href="https://github.com/saucelabs-sample-test-frameworks/Ruby-RSpec-Selenium"target="_blank">Rspec</a>, <a href=""target="_blank">Cucumber</a>,</li>
+          <li>Javascript: <a href=""target="_blank">Mocha</a>, <a href="https://github.com/saucelabs-sample-test-frameworks/JS-Protractor-Selenium"target="_blank">Protractor</a></li>
+        </ul>
+          <aside class="notes">
+          <p>Running tests in parallel can accelerate your team's development process and facilitate a continuous integration/continuous delivery pipeline. Sauce Labs provides many test frameworks with several scripts to demonstarte how to run tests in parallel. These scripts are set in an "AS-IS" state, meaning they're primarily function is to demonstrate the testing process and to provide a proof of concept within that framework.</p>
+              </aside>
+      </section>
+
+    <section>
+    <h3>WebDrivers and CI/CD</h3>
+                    
+      <h4>Scaling Strategies (Jenkins example):</h4>
+        <ol>
+          <li>Distribute builds using <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds"target="_blank">slave and master nodes</a></li>
+          <li>Leverage Test Configuration options to <a href="https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options"target="_blank">distribute tests across nodes</a></li>
+          <li>Configure Matrix project to reduce redundancy (see previous slide)</li>
+        </ol>
+        <aside class="notes">
+<p>The capacity of your CI/CD workstation becomes unstable with more  WebDrivers in the pipe</p>
+        </aside>
+        </section>
+  </section>
+
+  <!--Advanced Page Object Lab-->
+
+  <section data-state="lab">
+      <h3>Lab 1.1: Advanced Page Objects</h3>
+
+      <ol>
+        <li>In the Eclipse package explorer left panel, click on the following project: <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">sel301-testng-java-lab1-2</span></pre>.</li>
+        <li>In the package manager, select Pages > <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageObject.java</span></pre></li>
+        <li>Note the methods there, and open  <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TestCase.java</span></pre> in a new tab</li>
+        <li>Enter your Sauce Labs credentials for the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">"USERNAME"</span></pre> and <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">"ACCESS_KEY"</span></pre> variables.</li>
+        </ol>
+        <aside class="notes"></aside>
+      </section>
+
+  <section data-state="lab">
+      <h3>Lab 1.2: Advanced Page Objects</h3>
+
+        <ol>
+          <li>Create a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageBase.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">Pages</span></pre> package</li>
+          <li>Create a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TestBase.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">Tests</span></pre> package</li>
+          <li>Set the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">@Before</span></pre> and <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">@After</span></pre> methods in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TestBase.java</span></pre> class:
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+                  </section>
+
+
+<!-- Writing Testable Code -->
+
+<section data-background="rgb(226, 35, 26)">
+    <h2>Writing Testable Code</h2>
+      <aside class="notes"></aside>
+      </section>
+
+<section>
+      <h3>Module Objectives</h3>
+        <p>This module enables you to:</p>
+          <ul>
+          <li>Specify object identifiers in the source code to ease test automation</li>
+          <li>Follow best locator strategy practices</li>
+          <li>Incorporate Developer feedback</li>
+          <li>QA Engineer/tester is a 'first class citizen'</li>
+          </ul>
+        <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h3>Automation as a Project</h3>
+          <p>Treat as a Software Development project</p>
+          <p>End to End vs. Unit Testing</p>
+          <aside class="notes"></aside>
+        </section>
+
+  <section>
+    <h3>Duplication</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+    <h3>Cohesion</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+    <h3>Developer Feedback</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+    <h3>Mythical Coverage</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+  <section>
+    <h3>Unit Testing</h3>
+    <aside class="notes"></aside>
+  </section>
+
+<section>
+  <h3>Small, Atomic, and Autonomous Testing</h3>
+    <div style="float:left;width:10%;padding-right:5px;padding-bottom:10px;"><img src="assets/images/icons.png" style="border:0; text-align:center; background:none;">
+    </div>
+    <div style="padding-top:10px;"><p><strong>Small:</strong> Tests should be short and succinct.</p>
+      <p><strong>Atomic:</strong> Tests should focus on testing a single feature.</p>
+      <p><strong>Autonomous:</strong> Tests should be independent of other tests.</p>
+      </div>
+      <aside class="notes">
+        <p>Short - If you have a test suite of 100 tests running concurrently on 100 VMs, then the time it will take to run the entire suite will be determined by the longest/slowest test case. Keeping your tests small ensures that your suite will run efficiently and provide you with results faster. </p>
+        <p>Atomic - The test makes clear exactly what it is that you're testing. If the test fails, then you should also have a very clear idea of what needs to be fixed. </p>
+        <p>Autonomous - Tests should not be dependent on the results of one test to run successfully. In addition, an autonomous test should use its own data to test against, and not create potential conflicts with other tests over the same data.  </p>
+        </aside>
+    </section>
+
+    <section>
+    <h3>Mocks, Stubs, and Spies</h3>
+    <aside class ="notes"></aside>
+  </section>
+</section>
+
+<section>
+<section>
+    <h3>Functional Testing</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+    <h3>Commit, Merge, and Deploy</h3>
+    <aside class="notes"></aside>
+  </section>
+
+  <section>
+    <h3>Test Build Feedback</h3>
+    <p>If frontend was affected, functional test is required</p>
+    <aside class="notes"></aside>
+  </section>
+</section>
+
+<section>
+  <h3>Locator Best Practices</h3>
+  <aside class="notes"></aside>
+</section>
+
+<!--Broken XPath Lab-->
+
+<section data-state="lab">
+      <h3>Lab 2.1: Broken XPath</h3>
+
+        <ol>
+          <li></li>
+          <li></li>
+          <li></li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+</section>
+
+<section data-state="lab">
+      <h3>Lab 2.2: Adding the ID </h3>
+
+        <ol>
+          <li></li>
+          <li></li>
+          <li></li>
+          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+</section>
+
+
+<!-- Building a CI/CD Pipeline and Test Process -->
+<section data-background="rgb(226, 35, 26)">
+    <h2>The CI/CD Pipeline and Test Process</h2>
+      <aside class="notes"></aside>
+      </section>
+<section>
+      <h3>Module Objectives</h3>
+        <p>This module enables you to:</p>
+          <ul>
+          <li>The importance of "Shift Left" testing</li>
+          <li>Create a pull request build and test in isolation</li>
+          </ul>
+        <aside class="notes"></aside>
+        </section>
+
+        <section>
+                  <h3>Overview of CI/CD Pipeline</h3>
+                  <img src="assets/images/sauceCI2.png" style="border:0; text-align:center; background:none;">
+                    <p style="text-align:center;">Continuous Integration/Continuous Development</p>
+                    <aside class="notes">
+                      <p>Sauce Labs' value as a time saver is apparent even in its role in Continuous Integration and Delivery. </p>
+                      <p>Traditionally, testing and QA are bottlenecks for application delivery and release. Writing automated tests, maintaining testing infrastructure, painful manual testing, all consume huge amounts of time. The work is never done either, because the product is always changing.</p>
+                      <p>Sauce Labs takes away those worries though. With Selenium and Appium testing, we remove the barrier of time consuming test writing, and with Sauce Labs itself, we remove the need to have a propietary infrastructure. Sauce Labs provides the infrastructure for you, allowing you to test on a variety of platforms in a speedy manner. So you can focus on development, and releases, and leave the testing to Sauce Labs.</p>
+                      <p>Sauce Labs reduces the pain of testing, so that instead of traditionally waiting until the end of the development life cycle to test, you can test iteratively, as you go through each step of development.</p>
+                    </aside>
+                </section>
+                <section>
+                  <h3>JIRA Intergration</h3>
+                  <!-- left column-->
+                    <div style="float:left;width:50%;" class="centered">
+                  <p>Use Cases:</p>
+                  <ul>
+                    <li>Track and Share Test Results</li>
+                    <li>Match Builds with a Sprint</li>
+                    <li>Attach Test Assets to a JIRA Issue</li>
+                    <li>Bridge gap between Dev and QA</li>
+                    </ul>
+                  </div>
+                     <!-- right column-->
+                    <div style="float:right;width:50%;padding-right:0px;">
+                  <img src= "assets/images/atl_Logo.png" style="border:none; background:none; width:80%">
+                    </div>
+                </section>
+
+                <section>
+                  <h3>Available CI Plugins</h3>
+                  <ul>
+                    <li>TeamCity</li>
+                    <li>Visual Studio</li>
+                    <li>Bamboo</li>
+                    <li>Bitbucket Pipelines</li>
+                    <li>Jenkins</li>
+                    </ul>
+                    <div align="middle">
+                  <img src= "assets/images/plugins.png" style="border:none; background:none; width:90%">
+                    </div>
+                </section>
+                <section>
+              <h3>Jenkins Plug-In</h3>
+              <p>Sauce Connect can leverage Jenkins CI/CD pipeline using Sauce OnDemand CI Plugin</p>
+              <ul>
+              <li>Requires installation and configuration of Jenkins</li>
+              <li>"Sauce first, Jenkins second"</li>
+            </ul>
+              <div align="middle">
+                  <img src= "assets/images/Jenkins.png" style="border:none; background:none; width:35%">
+                    </div>
+              <aside class="notes">  Today we are going to cover the Jenkins plugin exclusively. Including Sauce Connect and SauceLabs by extension as part of the build process in Jenkins can contribute to the effectivness of your QA and product rollout or deployment process. However it's worth mentioning that before you begin testing in Jenkins, it's a good idea to ensure the manually tests are running correctly in Sauce Labs first.</aside>
+            </section>
+                <section>
+                  <h3>Benefits of CI Plugins</h3>
+                  <ul>
+                    <li>User interface to pass environment variables to tests</li>
+                    <li>Automate launch and teardown process for Sauce Connect Proxy</li>
+                    <li>Handle reporting throught SaucleLabs Test Publisher</li>
+                  </ul>
+                </section>
+
+                 <section>
+                  <section>
+                    <h3>Installing Sauce OnDemand</h3>
+                    <ul><p>Install Sauce OnDemand plugin through the Jenkins Admin page<p> 
+<li>Click "Manage Jenkins"</li>
+<li>Click "Manage Plugins"</li> 
+<li>Click the "Available" tab</li>
+<li>Search and select Sauce OnDemand Plugin</li> 
+<li>Download and install after restart</li>
+</ul>
+<aside class="notes">The Sauce OnDemand plugin allows user to populate environment variables on the Jenkins server that can be used in tests (e.g. Sauce USER and ACCESS_KEY) The plugin file is fairly large, so download may take several minutes.  
+In the plugin installation dialog, select Restart Jenkins when installation is complete and no jobs are running.</aside>
+                  </section>
+                  <section>
+                    <h3>Configuring OnDemand</h3>
+                    <ul>
+                      <li>Pass Environment Variables</li>
+                      <li>Set Authentication</li>
+                      <li>Set Desired Capabilities</li>
+                      <li>Set Jenkins Capabilities</li>
+                      <li>(Optional) Change Binary Locations</li>
+                      <li>(Optional) Enable Sauce Connect CLI options</li>
+                    <aside class="notes">The Jenkins plugin provides an interface for storing your Sauce Labs authentication credentials as environment variables on the Jenkins server, which is one of our best practices for testing with Sauce. This allows you to reference your credentials without having to hardcode them into your tests, and because the plugin manages authentication at the global level, you can have multiple jobs running at the same time that use these credentials. </aside>
+                  </section>
+<!-- Sauce onDemand Lab -->
+                
+                </section>
+                  <section>
+                  <h3>Passing Environment Variables</h3>
+<pre><code class="zsh" data-trim contenteditable>
+                        SAUCE_USERNAME # user used for OnDemand
+SAUCE_ACCESS_KEY # key used for OnDemand user
+SAUCE_ONDEMAND_BROWSERS # JSON string representing Desired Browsers
+SELENIUM_HOST # Host address of Selenium server
+SELENIUM_PORT # Port address of Selenium server
+                    </code></pre>
+                    <aside class="notes">These are some of the variables used for the OnDemand Jenkins plugin, We can specify the details of the actual Selenium grid by using SELENIUM_HOST and PORT. As well as the Sauce Access_key and Username to allow us to send REST calls during the build process.</aside>
+                  </section>
+                  <section>
+                    <h3>Setting Authentication</h3>
+                    <p>Example:</p>
+                    <pre><code class="zsh" data-trim contenteditable> 
+                    WebDriver driver = new RemoteWebDriver(
+new URL("https://"+System.getenv("SAUCE_USERNAME")+":"
++System.getenv("SAUCE_ACCESS_KEY")+"@ondemand.saucelabs.com:443/wd/hub",
+            desiredCapabilities);
+          </code></pre>
+          <aside class="notes">In this example we're setting the authentication via our selenium script and referencing the environment variables we stored in Jenkins the using the Sauce OnDemand plugin.</aside>
+        </section>
+                  <section>
+                    <section>
+                      <h3>Set Desired Capabilities in Test Script</h3>
+                      <p>Configure Variables in Test Scripts:</p>
+                    <pre><code class="zsh" data-trim contenteditable>                        desiredCapabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
+desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
+desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
+                    </code></pre>
+                    <aside class="notes">Next we can set the capabilites again using the stored environment variables such as Selenium host, version, and even the desired browsers</aside>
+                  </section>
+                  <section>
+                    <h3>Setting Capabilities for Jenkins</h3>
+                    <p>Configure a SAUCE_ON_DEMAND env variable if you plan on selecting multiple OS/browser combinations for your parrallel tests</p>
+                    <p>Configure SELENIUM_PLATFORM, SELENIUM_VERSION, and SELENIUM_BROWSER for a single operating test.</p> 
+                  <aside class="notes">So thus far we've set indivudal variables whenever we want to run one build with one platform/selenium host and port combo. But what if we want to run parrallel tests using different browser and OS combos? Here is where we use Sauce_On_demand variable where we specify these details in a list (next slide shows example).</aside>
+                  </section>
+                  <section>
+                    <h3>Example</h3>
+                    <pre><code class="zsh" data-trim contenteditable> 
+                    [
+    {
+        "platform":"LINUX",
+        "os":"Linux",
+        "browser":"firefox",
+        "url":"sauce-ondemand:?os=Linux&browser=firefox&browser-version=16",
+        "browserVersion":"16"
+    },
+    {
+        "platform":"VISTA",
+        "os":"Windows 2008",
+        "browser":"iexploreproxy",
+        "url":"sauce-ondemand:?os=Windows 2008&browser=iexploreproxy&browser-version=9",
+        "browserVersion":"9"
+    }
+]
+</code></pre>
+                    <aside class="notes">Here in our Sauce_on_demand varibable we're storing data for two separate platforms, and the inclusion of the Sauce_on_demand variable allows Jenkins to run these tests in parrallel during the build process</aside>
+                  
+                  </section>
+                </section>
+                  <section>
+                    <section>
+                    <h3>Configure SC Launch and Teardown</h3>
+                    <ol>
+                      <li>Extract SC binary</li>
+                      <li>Change Global Default location</li>
+                      <li>Change Per-Project Default location</li>
+                      <li>Set SC Command Line Options</li>
+                      <li>(Optional)Set Unique Tunnler Ids</li>
+                    </ol>
+                    <aside class="notes"> 
+Do not worry if your Jenkins server is behind a firewall because the Jenkins plugin for Sauce automatically installs Sauce Connect, but you will need to configure your project to use it. There are also global and per-project configuration options for Sauce Connect. The first step to running Sauce Connect with Jenkins is to enable it under the build environment settings under Sauce ondemand Support. There will be a checkbox that asks you to enable Sauce Connect. If the checkbox is selected, Sauce Connect will launch a new tunnel everytime you run a Jenkins build. Note that if you do run Sauce Connect then the Selenium HOST and PORT environment variables need to change to loclahost:4445</aside>
+                  </section>
+
+      <section>
+        <h3>Sauce Connect Proxy™</h3>
+          <p>Tunneling app that establishes a secure connection between local machine and Sauce Lab VM.</p>
+            <div style="position:center;float:left;width:50%;"class="centered">
+            <ul>
+              <li>Alternative to whitelisting IPs</li>
+              <li>Stablizes network connection</li>
+            </ul>
+            </div>
+          <div style="position:center;float:right;width:50%;"class="centered">
+            <img src="assets/images/SC_logo.png" style="float:right;border:none; background:none; width:60%">
+          <p style="text-align:center;">
+            <small>Documentation: <a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Connect" target="_blank">Sauce Connect Proxy</a>
+            </small>
+          </p>
+          </div>
+
+        <aside class="notes">Sauce Connect Proxy™ is a tunneling VM service (proxy server) that allows you and your teams to securely test applications behind your firewall. Sauce Connect is technically not required to run tests with Sauce Labs unless the website or application is not publicly accessible.  Sauce Labs recommend to enlist the aid of a network engineer to install Sauce Connect due to the complications of network architectures.</aside>
+        </section>
+    
+                
+      <section>
+          <h3>Monitoring Tunnels</h3>
+            <ul>
+              <li>Choose the "Tunnels" tab to view "Active Tunnels"</li><li>Display is list format with <i>Session ID</i> and <i>Host</i></li>
+            </ul>
+              <div align="middle"><img src="assets/images/Firefox3.png" style="border:none; background:none; width:90%">
+              </div>
+          <aside class="notes">When you choose the "tunnels" tab in the "active tunnels" tab in the SauceLabs UI, what you're actually looking at is the tunnel VM that was spun up by your SauceLab client. These Vms are emphemeral by nature, meaning once the test is completed, the Sauce Connect Client will execute a teardown proccess that will gracefully shut these VMs down. The Tunnel Vms are represented in this tab by their Session IDs and Host ID</aside>
+      </section>
+
+    <section>
+        <h3>SC Proxy Best Practices</h3>
+          <p>Security/Networking</p>
+            <ul>
+              <li>Designated Server</li>
+              <li>Firewall Rules</li>
+              <li>Intrusion Detection</li>
+              <li>Work with Network Admin</li>
+            </ul>
+            <p>Concurrency</p>
+              <ul>
+              <li>30 Per Tunnel</li>
+              </ul>
+          <aside class="notes"><p>so just for a rewview of the Sauce Connect Proxy best practices</p><ul>
+          <li>Use a designated Server for Sauce Connect Proxy client</li>
+          <li>Asses firewall rules so Sauce Client ONLY has access to the specific host it's trying to test</li>
+          <li>Configure Intrusion Detection on Sauce Connect Proxy logs so that we know the correct interception is happening rather than an alternative or spoofed interception</li>
+          <li>To maintain performance, keep the amount of conncurrent connections per tunnel to 30 or less</li>
+        </ul>
+      </aside>
+    </section> 
+  </section>
+
+  <section>
+                    <h3>Marking Tests in Jenkins</h3>
+                    <ul>
+                      <li>Navigate to the "Post-Build Actions."</li>
+                      <li>Select "Run Sauce Labs Test Publisher."</li>
+                      <div align="middle">
+                  <img src= "assets/images/post-build.png" style="border:none; background:none; width:40%">
+                    </div>
+                    <aside class="notes">Once we've set those two environment variables and also set them in our test script, we can send the Jenkins build results to the Sauce Labs Test Publisher. Howerver, if you did not configure your build capability, or if you set the incorrect JOB_NAME and BUILD NUMBER in the previous step this option will appear grayed out like you see it here.</aside>
+                  </section>
+
+                  <section>
+                    <h3>Pass Session ID to Jenkins</h3>
+                    <p>Sauce plugin parses test results file based on JOB_NAME</p>
+                    <pre><code class="zsh" data-trim contenteditable>
+                    SauceOnDemandSessionID=session_id job_name=some_job_name
+                    </code></pre>
+                    <p>Obtain session ID and ouptut to Jenkins via stdout</p>
+                    <pre><code class="zsh" data-trim contenteditable>
+                      private void printSessionId() {
+ 
+String message = String.format("SauceOnDemandSessionID=%1$s\ 
+job-name=%2$s",(((RemoteWebDriver) driver).getSessionId()).toString(),\
+"some job name"); System.out.println(message);
+                              }
+                    </code></pre>
+                    <p>
+                    <aside class="notes">As part of the post-build activities, the Sauce plugin will parse the test result files in an attempt to associate test results with Sauce jobs. It does this by identifying lines in the stdout or stderr that have this format:
+
+                    The session id can be obtained from the RemoteWebDriver instance and the job-name can be any string, but is generally the name of the test class being executed.
+To make sure that your test results and Sauce jobs are associated properly, you need to output the session id to stdout. For example, this is the code you would use to output the session id to the Java stdout. </aside>
+                  </section>
+
+      <section>
+        <section>
+        <h3>Testing in Isolation</h3>
+        <aside class="notes"></aside>
+      </section>
+      
+      <section>
+        <h3>Commit/Merge on Nightlys</h3>
+        <p>Insert Diagram here</p>
+      </section>
+
+      <section>
+        <h3>Pull Request Builds</h3>
+        <p>Insert Diagram here</p>
+      </section>
+
+      <section>
+        <h3>Jenkins Trigger</h3>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Automate all the Things!</h3>
+        <p>Trigger requirements upon pull request approval and merge:</p>
+        <ul>
+          <li>Unit Test passes</li>
+          <li>Functional Tests passes</li>
+        </ul>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Testing in Isolation</h3>
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Shift Left</h3>
+        <aside class="notes"></aside>
+      </section>
+
+    <section>
+  <h3>Test Run Best Practices</h3>
+  <ul>
+    <li>Avoid Brittle Test Locators</li>
+    <li>Avoid Duplication</li>
+    <li>Use Breakpoints</li>
+    <li>Separate Functional Tests from Performance Tests</li>
+  </ul>
+</section>
+                
+
+<!-- Test Data Management -->
+
+<section data-background="rgb(226, 35, 26)">
+    <h2>Test Data Management</h2>
+</section>
+
+<section>
+      <h3>Module Objectives</h3>
+        <p>This module enables you to:</p>
+          <ul>
+          <li></li>
+          <li></li>
+          </ul>
+        <aside class="notes"></aside>
+        </section>
+
+
+        
+               
+                
+               
+                
+                    
+                  
+                
+
+                 
+
+                 <section>
+                  <h3>Further Information</h3>
+                  <li><a href="https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy" target="_blank">Sauce Connect Documentation</a></li>
+                  <li><a href="https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+REST+API" target="_blank">REST API documentation</a></li>
+                  <li><a href="https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home" target="_blank">Sauce Labs Documentation</a></li>
+                  <li><a href="https://github.com/saucelabs-sample-scripts" target="_blank">Sauce Labs Sample Test Scripts</a></li>
+                  <li><a href="https://github.com/saucelabs-sample-test-frameworks" target="_blank">Sauce Labs Sample Test Frameworks</a></li>
+                  <li><a href="https://wiki.saucelabs.com/display/DOCS/Using+Sauce+Labs+with+Continuous+Integration+Platforms" target="_blank">CI/CD Platform Documentation</a></li>
+                  <aside class="notes"></aside>
+                 </section>
+
+                 <section>
+                   <h3>Q&A</h3>
+                   <li><a href="http://bit.ly/28NgER3" target="_blank">Survey!</a></li>
+                   <li>Support: <a href="mailto:help@saucelabs.com" target="_top">help@saucelabs.com</a></li>
+                   <aside class="notes"></aside>
+                 </section>
+
+            </div>
+
+
+		</div>
+
+      <script src="lib/js/head.min.js"></script>
+	  <script src="js/reveal.js"></script>
+
+	  <script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+          			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'lib/js/jquery-2.2.4.min.js'},
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+//            console.log(event.currentSlide.getAttribute("data-state"))
+// if we're on a lab slide, unhide the lab image, otherwise hide it.
+
+            if(event.currentSlide.getAttribute("data-state") === "lab") {
+            document.getElementById("lab_pic").style.visibility="visible";
+            }else{
+            document.getElementById("lab_pic").style.visibility="hidden";
+            }
+
+            } );
+
+		</script>
+
+	</body>
+</html>
