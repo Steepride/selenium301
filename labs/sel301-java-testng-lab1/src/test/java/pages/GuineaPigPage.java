@@ -29,7 +29,6 @@ public class GuineaPigPage {
 	public void pressSubmitButton() {
 		//click on submit button
 		driver.findElement(By.xpath("//*[@id=\"jumpContact\"]/div/input")).submit();
-		//*[@id="jumpContact"]/div/input
 	}
 
 	public void editTextBox() {
