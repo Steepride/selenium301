@@ -9,10 +9,10 @@ import org.openqa.selenium.remote.BrowserType;
 
 
 
-public class GuineaPigPage extends PageBase{
+public class GuineaPigPage {
 	protected WebDriver driver;
 	protected BrowserType browser;
-	
+
 	public GuineaPigPage(WebDriver driver) {
 		this.driver = driver;
 	}
