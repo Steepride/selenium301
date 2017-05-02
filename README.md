@@ -36,10 +36,3 @@ To import the lab files into your environment you can either:
 1. Clone the project into your local machine and import them into your workspace via Maven Project
 
 2. Download the pacakge as a zip file and import into your workspace via Maven Project
-
-
-### Lab Resources
-
-#### [Advanced Page Objects] ()
-#### [Testable Code] ()
-#### [Jenkins Pull Request Build (DEMO)] ()
