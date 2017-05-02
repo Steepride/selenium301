@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="10" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="34765" started-at="2017-04-05T23:59:00Z" finished-at="2017-04-05T23:59:35Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="34765" started-at="2017-04-05T23:59:00Z" finished-at="2017-04-05T23:59:35Z">
+      <class name="tests.GuineaPigTest">
+        <test-method status="PASS" signature="linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="linkTest" duration-ms="34456" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[safari]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[7.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkTest -->
+        <test-method status="PASS" signature="commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="commentTest" duration-ms="21715" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[54.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- commentTest -->
+        <test-method status="PASS" signature="linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="linkTest" duration-ms="19722" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[27.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkTest -->
+        <test-method status="PASS" signature="linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="linkTest" duration-ms="10610" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[41]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows XP]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkTest -->
+        <test-method status="PASS" signature="linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="linkTest" duration-ms="14576" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[internet explorer]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 8.1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkTest -->
+        <test-method status="PASS" signature="linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="linkTest" duration-ms="23255" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[54.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- linkTest -->
+        <test-method status="PASS" signature="commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="commentTest" duration-ms="32091" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[safari]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[7.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- commentTest -->
+        <test-method status="PASS" signature="commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="commentTest" duration-ms="11515" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[41]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows XP]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- commentTest -->
+        <test-method status="PASS" signature="commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="commentTest" duration-ms="15424" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[27.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- commentTest -->
+        <test-method status="PASS" signature="commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="commentTest" duration-ms="14287" started-at="2017-04-05T16:59:00Z" data-provider="hardCodedBrowsers" finished-at="2017-04-05T16:59:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[internet explorer]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 8.1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- commentTest -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="675" started-at="2017-04-05T16:59:11Z" finished-at="2017-04-05T16:59:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="400" started-at="2017-04-05T16:59:12Z" finished-at="2017-04-05T16:59:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="312" started-at="2017-04-05T16:59:15Z" finished-at="2017-04-05T16:59:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="304" started-at="2017-04-05T16:59:15Z" finished-at="2017-04-05T16:59:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="294" started-at="2017-04-05T16:59:16Z" finished-at="2017-04-05T16:59:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="313" started-at="2017-04-05T16:59:20Z" finished-at="2017-04-05T16:59:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="336" started-at="2017-04-05T16:59:22Z" finished-at="2017-04-05T16:59:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="266" started-at="2017-04-05T16:59:24Z" finished-at="2017-04-05T16:59:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="501" started-at="2017-04-05T16:59:32Z" finished-at="2017-04-05T16:59:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="after(org.testng.ITestResult)[pri:0, instance:tests.GuineaPigTest@5594a1b5]" name="after" is-config="true" duration-ms="282" started-at="2017-04-05T16:59:35Z" finished-at="2017-04-05T16:59:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:tests.GuineaPigTest@5594a1b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- after -->
+      </class> <!-- tests.GuineaPigTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Surefire_suite">
+              <span class="suite-name border-passed">Surefire suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Surefire_suite">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Surefire_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Surefire_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Surefire_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Surefire_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Surefire_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Surefire_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">10 methods,   10 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Surefire_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="commentTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)">commentTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="commentTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)">commentTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="commentTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Stri...)">commentTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Stri...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="commentTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.St...)">commentTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.St...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="commentTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,jav...)">commentTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,jav...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="linkTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.Strin...)">linkTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.Strin...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="linkTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)">linkTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="linkTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.l...)">linkTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.l...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="linkTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,...)">linkTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="tests.GuineaPigTest" hash-for-method="linkTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)">linkTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Surefire_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.GuineaPigTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="commentTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)">
+                  </a> <!-- commentTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...) -->
+                  <span class="method-name">commentTest</span>
+                  <span class="parameters">(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commentTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)">
+                  </a> <!-- commentTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...) -->
+                  <span class="method-name">commentTest</span>
+                  <span class="parameters">(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commentTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Stri...)">
+                  </a> <!-- commentTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Stri...) -->
+                  <span class="method-name">commentTest</span>
+                  <span class="parameters">(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commentTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.St...)">
+                  </a> <!-- commentTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.St...) -->
+                  <span class="method-name">commentTest</span>
+                  <span class="parameters">(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="commentTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,jav...)">
+                  </a> <!-- commentTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,jav...) -->
+                  <span class="method-name">commentTest</span>
+                  <span class="parameters">(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="linkTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.Strin...)">
+                  </a> <!-- linkTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.Strin...) -->
+                  <span class="method-name">linkTest</span>
+                  <span class="parameters">(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="linkTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)">
+                  </a> <!-- linkTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...) -->
+                  <span class="method-name">linkTest</span>
+                  <span class="parameters">(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="linkTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.l...)">
+                  </a> <!-- linkTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.l...) -->
+                  <span class="method-name">linkTest</span>
+                  <span class="parameters">(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="linkTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,...)">
+                  </a> <!-- linkTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,...) -->
+                  <span class="method-name">linkTest</span>
+                  <span class="parameters">(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="linkTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)">
+                  </a> <!-- linkTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...) -->
+                  <span class="method-name">linkTest</span>
+                  <span class="parameters">(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+        </div> <!-- panel Surefire_suite -->
+        <div panel-name="test-xml-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite thread-count=&quot;20&quot; verbose=&quot;0&quot; name=&quot;Surefire suite&quot; parallel=&quot;methods&quot;&gt;
+  &lt;test name=&quot;Surefire test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;tests.GuineaPigTest&quot;/&gt;
+      &lt;class name=&quot;tests.TestBase&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Surefire test --&gt;
+&lt;/suite&gt; &lt;!-- Surefire suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Surefire test (2 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Surefire_suite');
+function tableData_Surefire_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(10);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'linkTest')
+data.setCell(0, 2, 'tests.GuineaPigTest')
+data.setCell(0, 3, 34456);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'commentTest')
+data.setCell(1, 2, 'tests.GuineaPigTest')
+data.setCell(1, 3, 32091);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'linkTest')
+data.setCell(2, 2, 'tests.GuineaPigTest')
+data.setCell(2, 3, 23255);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'commentTest')
+data.setCell(3, 2, 'tests.GuineaPigTest')
+data.setCell(3, 3, 21715);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'linkTest')
+data.setCell(4, 2, 'tests.GuineaPigTest')
+data.setCell(4, 3, 19722);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'commentTest')
+data.setCell(5, 2, 'tests.GuineaPigTest')
+data.setCell(5, 3, 15424);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'linkTest')
+data.setCell(6, 2, 'tests.GuineaPigTest')
+data.setCell(6, 3, 14576);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'commentTest')
+data.setCell(7, 2, 'tests.GuineaPigTest')
+data.setCell(7, 3, 14287);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'commentTest')
+data.setCell(8, 2, 'tests.GuineaPigTest')
+data.setCell(8, 3, 11515);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'linkTest')
+data.setCell(9, 2, 'tests.GuineaPigTest')
+data.setCell(9, 3, 10610);
+window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <div id="times-div-Surefire_suite">
+              </div> <!-- times-div-Surefire_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.GuineaPigTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">linkTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">linkTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commentTest(chrome, 54.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Stri...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">linkTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.Strin...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">linkTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.linkTest(java.lang.String,java.l...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">linkTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.linkTest(java.lang.String,java.lang.String,j...)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commentTest(firefox, 27.0, Windows 10, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.St...)</span>
+                <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commentTest(internet explorer, 11, Windows 8.1, public void tests.GuineaPigTest.commentTest(java.lang.String,jav...)</span>
+                <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commentTest(safari, 7.0, OS X 10.9, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)</span>
+                <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">commentTest(chrome, 41, Windows XP, public void tests.GuineaPigTest.commentTest(java.lang.String,java.lang.Strin...)</span>
+                <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.S...)</span>
+                <span class="method-start">10611 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java....)</span>
+                <span class="method-start">11516 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java....)</span>
+                <span class="method-start">14288 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.S...)</span>
+                <span class="method-start">14576 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java....)</span>
+                <span class="method-start">15425 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.S...)</span>
+                <span class="method-start">19723 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java....)</span>
+                <span class="method-start">21716 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.S...)</span>
+                <span class="method-start">23255 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=commentTest status=SUCCESS method=GuineaPigTest.commentTest(java.lang.String, java....)</span>
+                <span class="method-start">32093 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">after([TestResult name=linkTest status=SUCCESS method=GuineaPigTest.linkTest(java.lang.String, java.lang.S...)</span>
+                <span class="method-start">34457 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
