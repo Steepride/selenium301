@@ -39,8 +39,8 @@ public class GuineaPigPage {
 	public String readComment() {
 		//read resulting text from comment box
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement myComments = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("your_comments"))));
-		return (myComments).getText().toString();
+		String myComments = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("your_comments")))).getText().toString();
+		return myComments;
 	}
 
 
