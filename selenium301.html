@@ -149,11 +149,11 @@
 </section>
 
 <section>
-  <h3>Page Base</h3>
+  <h3><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 60px;">PageBase</span></pre></h3>
   <ul>
     <p>Repeatable actions that scale across ALL pages</p>
     <ul>
-      <li>Log Ins</li>
+      <li>Logins</li>
       <li>Mouse Clicks</li>
       <li>Keystrokes</li>
       <li>Waits/Pauses</li>
@@ -171,20 +171,17 @@
     return driver.findElement(locator);
 }
 
-public PageBase click_on (By locator) {
+public void clickOn (By locator) {
     find(locator).click();
-    return new PageBase(driver);
   }
 
-public String get_text (By locator) {
+public String getText (By locator) {
     return find(locator).getText().toString();
 }
 
-public WebElement visibleWait(By locator, Integer timeout) {
-    timeout = timeout != null ? timeout : 10;
-    WebDriverWait wait = new WebDriverWait(driver, timeout);
-    return (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-}
+public void typeString (By locator, String input) {
+    findElement(locator).sendKeys(input);
+  }
   </code></pre>
   
   <aside class="notes">
@@ -223,13 +220,13 @@ public WebElement visibleWait(By locator, Integer timeout) {
   By commentBox = By.cssSelector("#comments");
   By yourComments = By.id("your_comments");
 
-  public void text_box() {
-    type_in(commentBox, "Hello World");
+  public void getText() {
+    typeString(commentBox, "Hello World");
   }
 
-  public String read_comment() {
+  public String readComment() {
     this.visibleWait(yourComments, 10);
-    return get_text(yourComments);
+    return getText(yourComments);
   }
   ...
 
@@ -242,10 +239,10 @@ public WebElement visibleWait(By locator, Integer timeout) {
 <section>
   <h3>Page Object Best Practices</h3>
   <ul>
-    <li>Class for each Page</li>
-    <li>Abstract re-usable code in Base class</li>
-    <li>Create Base Test Classes</li>
-    <li>Do NOT put assertions in Page Objects</li>
+    <li>Class for each page</li>
+    <li>Abstract re-usable code in base class</li>
+    <li>Create base test classes</li>
+    <li>Do NOT put assertions in action page objects</li>
   </ul>
   <aside class="notes"></aside>
 </section>
@@ -273,7 +270,7 @@ public WebElement visibleWait(By locator, Integer timeout) {
         <ol>
           <li>Distribute builds using <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds"target="_blank">slave and master nodes</a></li>
           <li>Leverage Test Configuration options to <a href="https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options"target="_blank">distribute tests across nodes</a></li>
-          <li>Use Selenium Factory to offload environment varaibles</li>  
+          <li>Use Selenium Factory to offload environment variables</li>  
           <li>Configure <a href="https://wiki.saucelabs.com/display/DOCS/Configuring+Jenkins+Matrix+Projects+with+Sauce"target="_blank">Matrix Projects</a></li>
         </ol>
         <aside class="notes">
@@ -302,8 +299,8 @@ ThreadLocal is particularly useful if you have static fields that should not be 
 </section>
 
 <section>
-  <h3>DataProvider Annotation</h3>
-  <p>Execute parrallel commands using an <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">Object Array</span></pre> or <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">HashMap</span></pre> for the data mapping</p>
+  <h3><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 60px;">DataProvider</span></pre> Annotation</h3>
+  <p>Execute parallel commands using an <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">Object Array</span></pre> or <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">HashMap</span></pre> for the data mapping</p>
   <pre><code class="Java" data-trim contenteditable>
     @DataProvider(name = "hardCodedBrowsers", parallel = true )
     public static Object[][] sauceBrowserDataProvider(Method testMethod) {
@@ -330,17 +327,19 @@ The data provider is a TestNG annotation that helps facilitate parralell executi
 
       <ol>
         <li>In the Eclipse package explorer (left panel), open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">sel301-java-testng-lab1</span></pre>.</li>
-        <li>In the package manager, select <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages > GuinePigPage.java</span></pre></li>
-        <li>The goal is to abstract the repeatble bits into separate objects</li>
+        <li>In the package manager, select <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages > GuineaPigPage.java</span></pre></li>
+        <li>The goal is to abstract the repeatable bits into separate objects</li>
         <li>Back in the package manager, select  <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">tests > PageBase.java</span></pre> in a new tab</li>
         <li>Begin abstracting repeatable selenium commands into public methods</li>
       </ol>
     </section>
     <section data-state="lab">
       <h3>Lab 1.2: Advanced Page Objects</h3>
+      <ol>
+        <li>Ensure <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java extends PageBase.java</span></pre></li>
         <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TestBase.java</span></pre></li>
         <li>Enter your Sauce Labs credentials for the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">"USERNAME"</span></pre> and <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">"ACCESS_KEY"</span></pre> variables.</li>
-        <li>Note <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TreadLocal</span></pre> and what it tries to achieve</li>
+        <li>Note <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">ThreadLocal</span></pre> and what it tries to achieve in terms of initializing a thread of <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">WebDrivers</span></pre> and <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">SessionIds</span></pre></li>
         </ol>
         <aside class="notes"></aside>
       </section>
@@ -379,19 +378,21 @@ By yourComments = By.id("your_comments");
       <h3>Lab 1.3: Setting the Test Methods</h3>
 
         <ol>
-          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigTest.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">test</span></pre> package and uncomment the method calls from <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuinePigPage.java</span></pre> in both test methods:</li>
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigTest.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">test</span></pre> package and create the following test methods:</li>
           <li><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">linkText</span></pre></li>
           <pre><code class="Java" data-trim contenteditable>
-   page.getPage();
-   page.hyper_link();
-   assertEquals(page.get_title(), "I am another page title - Sauce Labs");
+  GuineaPigPage page = new GuineaPigPage(driver);
+    page.visit();
+    page.clickLink();
+    assertEquals(page.readTitle(), "I am another page title - Sauce Labs");
 </code></pre>
 <li><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">commentTest</span></pre></li>
 <pre><code class="Java" data-trim contenteditable>
-   page.text_box();
-   page.submit_bttn();
-   String end_result =  page.read_comment();
-   assertEquals(end_result, "Your comments: Hello World");
+  GuineaPigPage page = new GuineaPigPage(driver);
+    page.visit();
+    page.submitComment();
+    page.pressSubmit();
+    assertEquals(page.readComment(), "Your comments: Hello World");
 </code></pre></li>
           
           </ol>
@@ -1129,7 +1130,7 @@ Maven version 3.3.9, Goals = clean, test;</li>
 </section>
 <section data-state="lab" data-transition="none">
       <h3>Lab 4.1: Angular PR Build Demo</h3>
-      <center><img src= "assets/images/PRBuildDemo4.png" style="border:none; background:none; width:100%"></center>
+      <center><img src= "assets/images/PRBuildDemo4.png" style="border:none; background:none; width:0%"></center>
 </section>
 </section>
 

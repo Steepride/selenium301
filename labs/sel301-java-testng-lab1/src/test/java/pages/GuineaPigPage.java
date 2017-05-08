@@ -16,22 +16,22 @@ public class GuineaPigPage {
 		this.driver = driver;
 	}
 
-	public void getPage() {
+	public void visit() {
 		driver.get("https://jtack4970.github.io/training-test-page-james/");
 		//driver.get("https://saucelabs.com/test/guinea-pig");
 	}
 
-	public void hyperLinkTest() {
+	public void clickLink() {
 		//click on page link "i am a link"
 		driver.findElement(By.linkText("i am a link")).click();
 	}
 
-	public void pressSubmitButton() {
+	public void pressSubmit() {
 		//click on submit button
 		driver.findElement(By.xpath("//*[@id=\"jumpContact\"]/div/input")).submit();
 	}
 
-	public void editTextBox() {
+	public void submitComment() {
 		//Type text into text box
 		driver.findElement(By.cssSelector("#comments")).sendKeys("Hello World");
 	}
@@ -44,11 +44,11 @@ public class GuineaPigPage {
 	}
 
 
-	public String getCurrentPageTitle() {
+	public String readTitle() {
 		return driver.getTitle().toString();
 	}
 
-	public String readLinkText() {
+	public String readText() {
 		return driver.findElement(By.linkText("i am a link")).getText().toString();
 	}
 
