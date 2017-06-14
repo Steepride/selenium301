@@ -1,0 +1,25 @@
+training-longrun-20170522-1	student1	wee4ieth	ec2-54-163-67-148.compute-1.amazonaws.com
+training-longrun-20170522-2	student2	ooko3ahc	ec2-54-167-129-28.compute-1.amazonaws.com
+training-longrun-20170522-3	student3	aath9ree	ec2-54-87-70-239.compute-1.amazonaws.com
+training-longrun-20170522-4	student4	ize3aifo	ec2-54-146-129-246.compute-1.amazonaws.com
+training-longrun-20170522-5	student5	ec3uthoa	ec2-54-205-130-212.compute-1.amazonaws.com
+training-longrun-20170522-6	student6	eith3wee	ec2-54-211-93-123.compute-1.amazonaws.com
+training-longrun-20170522-7	student7	eu7ihooc	ec2-54-204-210-199.compute-1.amazonaws.com
+training-longrun-20170522-8	student8	gow7quai	ec2-54-145-129-128.compute-1.amazonaws.com
+training-longrun-20170522-9	student9	faiqu7pe	ec2-54-147-206-47.compute-1.amazonaws.com
+training-longrun-20170522-10	student10	aom9yai4	ec2-54-158-178-242.compute-1.amazonaws.com
+training-longrun-20170522-11	student11	oow4oosi	ec2-54-211-118-127.compute-1.amazonaws.com
+training-longrun-20170522-12	student12	aiquei9i	ec2-54-161-142-101.compute-1.amazonaws.com
+training-longrun-20170522-13	student13	pahth9xo	ec2-54-161-238-229.compute-1.amazonaws.com
+training-longrun-20170522-14	student14	ohmawi7o	ec2-54-205-85-149.compute-1.amazonaws.com
+training-longrun-20170522-15	student15	ies7yoh7	ec2-54-204-115-160.compute-1.amazonaws.com
+
+
+BACKENDS
+
+training-longrun-20170522-1	student1	zaefeem3	ec2-54-159-223-88.compute-1.amazonaws.com
+
+training-longrun-20170522-1	student1	faub7aep	ec2-184-73-107-93.compute-1.amazonaws.com
+
+training-longrun-20170522-1	student1	eix9kaum	ec2-54-163-159-160.compute-1.amazonaws.com
+

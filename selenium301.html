@@ -205,7 +205,7 @@ public void typeString (By locator, String input) {
   </code></pre>
   <aside class="notes">
 
-    For each page we will create a separate class that extends the base class and also create a constructor to hold these initialized variables in memory. We identify then can go on to identify specific locators and keep all together on just below the class. This will help us to re-use the locators for multiple methods which will make it easier to find a given locator and change it if required.</aside>
+    For each page we create a separate class that extends the base class. We also create a constructor to hold these initialized variables in memory. Then we go on to identify specific locators per page object UI Element. This helps us to re-use locators for multiple pages and also makes it easier to find and change a given locator if required.</aside>
 </section>
 
 <section>
@@ -233,7 +233,7 @@ public void typeString (By locator, String input) {
   </code></pre>
   <aside class="notes">
 
-    So here in this example we have the previous methods from our PageBase class and we're just passing the locators through in order to execute the commands on this Page Object</aside>
+    So here in this example we have the previous methods from our PageBase class and we pass the locators through in order to execute the commands on this Page Object. For example we have a method for typing keystrokes into UI form and we pass the commentBox locator along with the desired string value. Below that we have a method that reads the comments (along with a wait method) and returns the value.</aside>
 </section>
 
 <section>
@@ -244,7 +244,14 @@ public void typeString (By locator, String input) {
     <li>Create base test classes</li>
     <li>Do NOT put assertions in action page objects</li>
   </ul>
-  <aside class="notes"></aside>
+  <aside class="notes">
+<ul>
+  <li>Each page of your website should have it's own page object which in turn is a class</li>
+  <li>Re-usable commands belong in a base class, and each page object should extend the base class</li>
+  <li>The same principles should apply to the test base class, in other words you have a test base class that holds setup methods, checkers, and setters, and you can have separate test classes for functional, or unit tests</li>
+  <li>It's a bad practice to put assertions in a page objects, especially actionable page objects that are validating the results of your overall test. Nesting asserts in your page objects makes them less autonomous—even though it may be a good way to check that page objects are doing what they're supposed to, it's better to use a try catch and throw some sort of exception</li>
+</ul>
+  </aside>
 </section>
 
     <section>
@@ -321,20 +328,125 @@ The data provider is a TestNG annotation that helps facilitate parralell executi
 
 
   <!--Advanced Page Object Lab-->
-
-  <section data-state="lab">
-      <h3>Lab 1.1: Advanced Page Objects</h3>
+<section>
+  <section data-state="lab"> 
+      <h3>Lab 1.1: Creating the Base Page Class</h3>
 
       <ol>
         <li>In the Eclipse package explorer (left panel), open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">sel301-java-testng-lab1</span></pre>.</li>
         <li>In the package manager, select <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages > GuineaPigPage.java</span></pre></li>
-        <li>The goal is to abstract the repeatable bits into separate objects</li>
-        <li>Back in the package manager, select  <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">tests > PageBase.java</span></pre> in a new tab</li>
-        <li>Begin abstracting repeatable selenium commands into public methods</li>
+        <li>Create the new class: <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;"> PageBase.java</span></pre> in <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages</span></pre></li>
+        <li>Abstract selenium <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">driver</span></pre> commands into public methods in <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageBase.java</span></pre> (next slide for details)</li>
       </ol>
     </section>
+    <section data-state="lab"> 
+      <h3>Lab 1.1: Creating the Base Page Class</h3>
+
+      <ol>
+        <li>Import the following packages into <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageBase.java</span></pre>:
+        <pre><code class="Java" data-trim contenteditable>
+package pages;
+import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidElementStateException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+          </code></pre></li>
+        <li>Define a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">WebDriver</span></pre> and a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">BrowserType</span></pre> object:
+        <pre><code class="Java" data-trim contenteditable>
+public class PageBase {
+  protected WebDriver driver;
+  protected BrowserType browser;
+          </code></pre></li>
+      </ol>
+    </section>
+
+     <section data-state="lab"> 
+      <h3>Lab 1.1: Creating the Base Page Class</h3>
+
+      <ol>
+        <li>Create a constructor method at the top of the script:
+           <pre><code class="Java" data-trim contenteditable>
+public class PageBase {
+  protected WebDriver driver;
+  protected BrowserType browser;
+
+  public PageBase (WebDriver driver) {
+    this.driver = driver;
+  }
+          </code></pre></li>
+      </ol>
+    </section>
+
+    <section data-state="lab"> 
+      <h3>Lab 1.1: Creating the Base Page Class</h3>
+
+      <ol>
+        <li>Convert driver commands from <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> into new methods in <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageBase.java</span></pre>:
+           <pre><code class="Java" data-trim contenteditable>
+###EXAMPLES###
+  public WebElement findElement (By locator) {
+    return driver.findElement(locator);
+  }
+
+  public void pressButton (By locator) {
+    findElement(locator).submit();
+  }
+
+  public void clickOn (By locator) {
+    visibleWait(locator, 10).click();
+  }
+
+  public String getText (By locator) {
+    return findElement(locator).getText().toString();
+  }
+
+  public void typeString (By locator, String input) {
+    findElement(locator).sendKeys(input);
+  }
+
+  public String getPageTitle () {
+    return this.driver.getTitle().toString();
+  }
+
+
+          </code></pre></li>
+      </ol>
+    </section>
+
+     <section data-state="lab"> 
+      <h3>Lab 1.1: Creating the Base Page Class</h3>
+
+      <ol>
+        <li>Create a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">visibleWait()</span></pre> method:
+           <pre><code class="Java" data-trim contenteditable>
+public WebElement visibleWait(By locator, Integer timeout) {
+    timeout = timeout != null ? timeout : 10;
+      WebDriverWait wait = new WebDriverWait(driver, timeout);
+      return (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+  }
+}
+          </code></pre></li>
+
+          <li>Create a display checker method called<pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;"> isDisplayed()</span></pre>:
+           <pre><code class="Java" data-trim contenteditable>
+public Boolean isDisplayed (By locator) throws InvalidElementStateException {
+    if(!findElement(locator).isDisplayed()) {
+      throw new InvalidElementStateException("This web element is not displaying");
+    } else {
+      return true;
+    }
+}
+          </code></pre></li>
+      </ol>
+    </section>
+  </section>
+
+
     <section data-state="lab">
-      <h3>Lab 1.2: Advanced Page Objects</h3>
+      <h3>Lab 1.2: Authenticate the Test</h3>
       <ol>
         <li>Ensure <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java extends PageBase.java</span></pre></li>
         <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">TestBase.java</span></pre></li>
@@ -344,15 +456,18 @@ The data provider is a TestNG annotation that helps facilitate parralell executi
         <aside class="notes"></aside>
       </section>
 
+<section>
   <section data-state="lab">
-      <h3>Lab 1.2: Setting the Page Object</h3>
+      <h3>Lab 1.3: Setting the Page Object</h3>
 
         <ol>
-          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages</span></pre> package and uncomment the constructor
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">pages</span></pre> package and change the constructor:
           <pre><code class="Java" data-trim contenteditable>
-            public GuineaPigPage(WebDriver driver) {
-    super(driver);
-}
+###Before###
+this.driver = driver;
+
+###After###
+super(driver);
           </code></pre></li>
           <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">https://saucelabs.com/test/guinea-pig</span></pre> in a local browser and inspect the page</li>
           <li>Create locators for the hyperlink, send button, comment box, and comment result 
@@ -374,12 +489,61 @@ By yourComments = By.id("your_comments");
 </ul>
                     </aside>
                   </section>
+
 <section data-state="lab">
-      <h3>Lab 1.3: Setting the Test Methods</h3>
+      <h3>Lab 1.3: Setting the Page Object</h3>
 
         <ol>
-          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigTest.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">test</span></pre> package and create the following test methods:</li>
-          <li><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">linkText</span></pre></li>
+          <li>Create page object methods in <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> using the extended methods in <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">PageBase.java</span></pre>:
+          <pre><code class="Java" data-trim contenteditable>
+###EXAMPLES###
+  public void visit() {
+    driver.get("https://saucelabs.com/test/guinea-pig");
+  }
+
+  public void clickLink() {
+    clickOn(linkTitle);
+  }
+
+  public void pressSubmit() {
+    pressButton(sendButton);
+  }
+
+  public void submitComment() {
+    typeString(commentBox, "Hello World");
+  }
+
+  public String readComment() {
+    return getText(yourComments);
+  }
+
+
+  public String readTitle() {
+    return this.getPageTitle();
+  }
+
+  public String readText() {
+    return getText(linkTitle);
+  }
+          </code></pre></li>          
+          </ol>
+        <aside class="notes">
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+                    </aside>
+        </section>
+  </section>
+<section data-state="lab">
+      <h3>Lab 1.4: Setting the Test Methods</h3>
+
+        <ol>
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigTest.java</span></pre> class in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">test</span></pre> package and add the following lines underneath the comment that reads "<pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">//Instantiate page object</span></pre>":</li>
+          <li><pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">linkTest</span></pre></li>
           <pre><code class="Java" data-trim contenteditable>
   GuineaPigPage page = new GuineaPigPage(driver);
     page.visit();
@@ -397,36 +561,25 @@ By yourComments = By.id("your_comments");
           
           </ol>
         <aside class="notes">
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
+          <p>Now we need to instantiate our page object in our test, otherwise we can't use it to abstract the page services from our test suite</p>
+          <p>In the the linkTest and commentTest methods, add the following code<p>
                     </aside>
                   </section>
 
 <section data-state="lab">
-      <h3>Lab 1.4: Wait! What happened?</h3>
+      <h3>Lab 1.5: Wait! What happened?</h3>
 
         <ol>
           <li>Save and Run a Maven test; the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">commentTest(s)</span></pre> should fail</li>
           <li>Check the console log in Eclipse, and note the<pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;"> NoSuchElementException</span></pre> errors</li>
-          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> and create the following line in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">read_comment()</span></pre> method</li>
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> and create the following line in the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">readComment()</span></pre> method</li>
           <pre><code class="Java" data-trim contenteditable>
             this.visibleWait(yourComments, 10);
 </code></pre>
 <li>Save and re-run the test. What are the results?</li>
           </ol>
         <aside class="notes">
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
+<p>Our test failed because we didn't have an explicit wait for our comment data entry with the sendKeys directive. We can use the visibleWait method that we defined earlier in our page object so that we can avoid this thrown exception.</p>
                     </aside>
                   </section>
 
@@ -458,7 +611,9 @@ By yourComments = By.id("your_comments");
           <li>Treat as a Software Development project</li>
           <li>End to End vs. Unit Testing</li>
         </ul>
-          <aside class="notes"></aside>
+          <aside class="notes">
+Some of the biggest problems with QA or automation engineering is that there's a gap of knowledge or collaboration effort between the developer and the QA engineer. In order to alleviate a lot of problems that we will outline later, we need to ensure that the QA or automation engineer's test code is considered a first class citizen and treated equally important as the product code. It's important to establish this feedback loop with the developer in order to create alignment.
+          </aside>
         </section>
 
   <section>
@@ -472,7 +627,15 @@ By yourComments = By.id("your_comments");
    <div style="float:right;width:90%;padding-right:0px;">
     <img src="assets/images/DilbertTesting.jpg" style="border:0; text-align:center; background:none;">
   </div>
-    <aside class="notes"></aside>
+    <aside class="notes">
+<p>So in order to create this feedback loop there are a few stratigies to employ. </p>
+<ul>
+<li>Test earlier in the lifecycle, meaning before or on commits. </li>
+  <li>Avoid testing pyramids, we will talk a little bit about this later but generally if you're doing a crazy-amount of testing in the UI you're doing yourself a diservice.</li>
+  <li>There's also this idea about metrics, and sometimes the goal of testing gets muddled when  you focus on 99% pass rate vs. actually writing meaningful tests.</li>
+  <li> And finally it's paramount to ensure you're not committing duplicate code due to miscommunicaiton. This becomes increasingly dangerous if your test code and product code exist in the same repoistory.</li>
+</ul>
+    </aside>
   </section>
 
 <section>
@@ -485,7 +648,9 @@ By yourComments = By.id("your_comments");
       <li>Align with Business Analysts' stories</li>
       <li>Avoid the <a href="https://watirmelon.blog/2012/01/31/introducing-the-software-testing-ice-cream-cone/"target="_blank">Ice Cream Cone Anti-Pattern</a></li>
     </ul>
-    <aside class="notes"></aside>
+    <aside class="notes">
+      So here we're echoing some sentiments we've previously mentioned but a few points worth mentioning here. The third bullet point is important because often times if we're talking about TDD (Test Driven Development) we can fall into this trap where we loose sight of the business needs that necessitated the feature in the first place. Now as far as the ice cream cone pattern goes in the next slide...
+    </aside>
   </section>
   <section>
     <h3>Ice-Cream Cone</h3>
@@ -507,7 +672,9 @@ By yourComments = By.id("your_comments");
   </div>
 
     
-    <aside class="notes"></aside>
+    <aside class="notes">
+This happens when we test at the highest level, meaning exclusively in the UI. It could also occur if we have too many sepearate owners for separate code bases. In other words this QA Engineer owns testing for this feature, that QA Engineer owns testing for that feature and all test code exists in sepearate repositories from product. Developers work in silos insulated from QA Engineers.
+    </aside>
   </section>
 
   <section>
@@ -532,8 +699,31 @@ By yourComments = By.id("your_comments");
           </ul>
     <p></p>
   </div>
-    <aside class="notes"></aside>
+    <aside class="notes">
+So how the heck do we fix this? One of the simpliest strategies is to have cross-role parings--where you have one QA/Automation Engineer per developer. This way the communicaiton channel or developer feedback loop is established early and forced via a buddy system. In terms of agile development it's important to hold team kickoffs to align all of the development goals around user stories. And finally we should test at the lowest level, in other words automated unit testing that are small, autonomous, and atomic. Some of the ways we can do this is by Shifting left which implies testing earlier in the dev cycle, and having a shallow DOT (depth of test)
+    </aside>
   </section>
+  <section>
+    <h3>Depth of Test</h3>
+    <p>Shifting Left depends on shallow depth of testing</p>
+    <h4>Which layer is most important?</h4>
+    <ul>
+      <li>JS Layer</li>
+      <li>Controller layer</li>
+      <li>Domain model, validators, calculator</li>
+      <li>Data Model and Repo</li>
+    </ul>
+    <aside class="notes">
+To explain DOT, let's take an example application. Let's assume that it's a business app that used for business quotes and has several business validation rules. Before we test the entire application like it's a black box, we should break it into parts first. So if we abstract the app into layers we should have:
+<ul>
+  <li>JavaScript layer that communicates to server side using JSON</li>
+  <li>Controller layer that has mandatory validators and quote pricing</li>
+  <li>The domain model, the business rule validators, and the calculator class that generates the pricing</li>
+  <li>And at the bottom you have the actual pricing data next to the code repository</li>
+</ul>
+<p>The easiest way to think of Depth of Test is to think of the terms origin, which derives from a photography term called depth of field. Which in a nutshell refers to the distance between the nearest and farthest objects that appear in focus in an image. If we take that to a literal translation of software development, depth of test refers to the distance between the nearest and farthest software components that receive a visit during test execution. Now a software component doesn't necessirly imply one class or one function, it could mean the entire pricing calculator in this example--which is crucial component for that app to work correctly. This is the essence of shallow testing, we're performing targeted unit testing on the core components of your applicaiton while performing minimal funcitonal tests at the UI level.</p>
+    </aside>
+</section>
 </section>
 
 
@@ -544,7 +734,9 @@ By yourComments = By.id("your_comments");
       <li>Two teams, one codebase</li>
       <li>Maintainable test suite that respects the entire stack</li>
     </ul>
-    <aside class="notes"></aside>
+    <aside class="notes">
+We've mentioned it several times already, but it doesn't matter how many teams you have. If they are a stakeholder in the project there should be a minimal amount of codebases. For example, two teams (A QA and Dev team), there should be one codebase. Extrapolating further on our concept of shallow testing, we should indeed have one maintainable test suite that respects the entire stack. Now the frequency of running these tests depends on how you manage the project. For example the afformentioned shallow unit tests can run on every commit whereas higher funcitonal tests need only run when something changes on the frontend.
+    </aside>
   </section>
 
 
@@ -553,7 +745,9 @@ By yourComments = By.id("your_comments");
     <center><img src="assets/images/codeCoverage_meme.jpg" style="border:0; text-align:center; background:none;">
     <p>Perfect is the enemy of great</p></center>
 
-    <aside class="notes"></aside>
+    <aside class="notes">
+we talked a bit about focusing on metrics too much. To be honest, if you have a business policy that requires 99% code coverage I think you're org is probably broke. This will incentivize your devs and qa engineers to write tests just for the sake of writing tests.
+    </aside>
   </section>
 
   <section>
@@ -572,7 +766,9 @@ By yourComments = By.id("your_comments");
   <div style="float:right;width:40%;padding-right:0px;">
     <img src="assets/images/testAllthings.jpg" style="border:0; text-align:center; background:none;">
   </div>
-    <aside class="notes"></aside>
+    <aside class="notes">
+Instead, as a team, you should outline what are acceptable losses and where in terms of the layers of your application, and use a broad managbel data set to test various components of your application.
+    </aside>
   </section>
 
 <section>
@@ -603,7 +799,9 @@ By yourComments = By.id("your_comments");
             <small>Blog Post: <a href="https://saucelabs.com/blog/speed-up-selenium-with-application-mocks" target="_blank">Speed up Selenium with Application Mocks</a>
             </small>
           </div>
-    <aside class ="notes"></aside>
+    <aside class ="notes">
+An easier way to shift left and avoid testing through the UI each time, creating users for each test run which will increase test overhead, and worrying about persistent data surviving tests we can use mocks, stubs, and spies to simulate a lot of the functionality that is dependent upon data stores and external applications to run. This concept is way out of scope for this course, and deserves an entire course dedicated to teaching you the basics of simulating test data so instead of diving down the rabbit hole, there's a link here that further explains this concept and also provides code examples. After reading the explanations try and implement these concepts in your tests, or at the very least reduce some uncessary callouts to external applicaitons which will shorten your test suite uns
+    </aside>
   </section>
 </section>
 
@@ -619,7 +817,9 @@ By yourComments = By.id("your_comments");
         </ul>
       </li>
     </ul>
-    <aside class="notes"></aside>
+    <aside class="notes">
+Again, the higher level tests should not run as frequnetly as your shallow tests. When the tests do run, it's important to notify the developer or ensure accountablity in dev cycle, whether it's an exception handler or something at the Jenkins job notification level.
+    </aside>
   </section>
 
 <section>
@@ -639,17 +839,26 @@ By yourComments = By.id("your_comments");
         </ul>
       </li>
         </ul>
-  <aside class="notes"></aside>
+  <aside class="notes">
+I don't know where the argument currently lies persay but at Sauce Con 2017, the general consensus was that most people don't use XPath anymore and that you should be using ids whenever you can. If not, get tricky with your CSS locators (which we covered in Selenium 201 course), because although the learning curves might be steep, it will make you an automation rockstar. To show the brittleness of XPath's were' going to explore supplementing xpath for CSS locators in our next lab.
+  </aside>
 </section>
 
 <!--Broken XPath Lab-->
 
 <section data-state="lab">
-      <h3>Lab 2.1: Broken XPath</h3>
+      <h3>Lab 2.1: Brittle XPath</h3>
 
         <ol>
           <li>Open the local test page index2.html</li>
           <li>Inspect the "Send" button in the lower right corner of the screen</li>
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuienaPigPage.java</span></pre> and uncomment the second <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">driver.get</span></pre> command:
+          <pre><code class="Java" data-trim contenteditable>
+          public void visit() {
+    driver.get("https://saucelabs.com/test/guinea-pig");
+    //driver.get("https://jtack4970.github.io/training-test-page-james/");
+  }
+          </code></pre>
           <li>Run the test, it should fail. What happened?</li>
           
           </ol>
@@ -665,23 +874,21 @@ By yourComments = By.id("your_comments");
 </section>
 
 <section data-state="lab">
-      <h3>Lab 2.2: Adding the ID </h3>
+      <h3>Lab 2.2: CSS, My Favorite &#60;type&#62; </h3>
 
         <ol>
-          <li>Add an id tag to the "Send" button</li>
-          <li>Run a test to see Appium locates the element</li>
-          <li>Move the submit button to a different position in the DOM</li>
-          <li>Re-test to see that the test still passes</li>
+          <li>Open <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">GuineaPigPage.java</span></pre> and navigate to the locators</li>
+          <li>Replace the <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">xpath</span></pre> selector with a <pre style="display:inline; color:rgb(87,193,232);"><span style="font-size: 30px;">CSS</span></pre> attribute selector:
+<pre><code class="Java" data-trim contenteditable>
+By.cssSelector("input[type*=\"submit\"]");
+</code></pre></li>
+          <li>Run a Maven test</li>
+          <li>The instructor will move the submit button to a different position in the DOM</li>
+          <li>Re-test to see if the test still passes</li>
           
           </ol>
         <aside class="notes">
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
+CSS locators are my favorite locator type because they're so flexible. We can use various css selectors to fine-tune our location strategy. One of the most versatile is an attribute selector. This is especially useful if your element has specific attributes but no class or id selector. This way we can zero in specific style or type attribute values. Hopefully after we replace this xpath selector, and I move the button to a different position int he DOM, the test won't break.
                     </aside>
 </section>
 
@@ -876,19 +1083,6 @@ desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENI
                   </section>
                 </section>
                   <section>
-                    <section>
-                    <h3>Configure SC Launch and Teardown</h3>
-                    <ol>
-                      <li>Extract SC binary</li>
-                      <li>Change Global Default location</li>
-                      <li>Change Per-Project Default location</li>
-                      <li>Set SC Command Line Options</li>
-                      <li>(Optional)Set Unique Tunnler Ids</li>
-                    </ol>
-                    <aside class="notes"> 
-Do not worry if your Jenkins server is behind a firewall because the Jenkins plugin for Sauce automatically installs Sauce Connect, but you will need to configure your project to use it. There are also global and per-project configuration options for Sauce Connect. The first step to running Sauce Connect with Jenkins is to enable it under the build environment settings under Sauce ondemand Support. There will be a checkbox that asks you to enable Sauce Connect. If the checkbox is selected, Sauce Connect will launch a new tunnel everytime you run a Jenkins build. Note that if you do run Sauce Connect then the Selenium HOST and PORT environment variables need to change to loclahost:4445</aside>
-                  </section>
-
       <section>
         <h3>Sauce Connect Proxy™</h3>
           <p>Tunneling app that establishes a secure connection between local machine and Sauce Lab VM.</p>
@@ -927,6 +1121,7 @@ Do not worry if your Jenkins server is behind a firewall because the Jenkins plu
               <li>Designated Server</li>
               <li>Firewall Rules</li>
               <li>Intrusion Detection</li>
+              <li>Persistent tunnel(s) or HA tunnels?</li>
               <li>Work with Network Admin</li>
             </ul>
             <p>Concurrency</p>
@@ -937,10 +1132,24 @@ Do not worry if your Jenkins server is behind a firewall because the Jenkins plu
           <li>Use a designated Server for Sauce Connect Proxy client</li>
           <li>Asses firewall rules so Sauce Client ONLY has access to the specific host it's trying to test</li>
           <li>Configure Intrusion Detection on Sauce Connect Proxy logs so that we know the correct interception is happening rather than an alternative or spoofed interception</li>
-          <li>To maintain performance, keep the amount of conncurrent connections per tunnel to 30 or less</li>
+          <li>In another course we cover in detail how to set up a highly available tunnel configuration. What this means is that you'll have a group of tunnels that have the exact same id and Sauce Connect can load balance across those tunnels depending on the amount of concurrent tests you have running. This is more useful for your DevOps or Network Admin guys, but if you're interested in how to set it up, stay after class and I can show you some of the flags and how they work</li>
+          <li>Finally, whether you're using a persistent or pooled tunnels, to maintain performance, keep the amount of conncurrent connections per tunnel to 30 or less</li>
         </ul>
       </aside>
     </section> 
+
+     <section>
+                    <h3>Configure SC Launch and Teardown</h3>
+                    <ol>
+                      <li>Extract SC binary</li>
+                      <li>Change Global Default location</li>
+                      <li>Change Per-Project Default location</li>
+                      <li>Set SC Command Line Options</li>
+                      <li>(Optional)Set Unique Tunnler Ids</li>
+                    </ol>
+                    <aside class="notes"> 
+Do not worry if your Jenkins server is behind a firewall because the Jenkins plugin for Sauce automatically installs Sauce Connect, but you will need to configure your project to use it. There are also global and per-project configuration options for Sauce Connect. The first step to running Sauce Connect with Jenkins is to enable it under the build environment settings under Sauce ondemand Support. There will be a checkbox that asks you to enable Sauce Connect. If the checkbox is selected, Sauce Connect will launch a new tunnel everytime you run a Jenkins build. Note that if you do run Sauce Connect then the Selenium HOST and PORT environment variables need to change to loclahost:4445</aside>
+                  </section>
   </section>
 
   <section>
@@ -967,7 +1176,7 @@ Do not worry if your Jenkins server is behind a firewall because the Jenkins plu
 String message = String.format("SauceOnDemandSessionID=%1$s\ 
 job-name=%2$s",(((RemoteWebDriver) driver).getSessionId()).toString(),\
 "some job name"); System.out.println(message);
-                              }
+                    }
                     </code></pre>
                     <p>
                     <aside class="notes">As part of the post-build activities, the Sauce plugin will parse the test result files in an attempt to associate test results with Sauce jobs. It does this by identifying lines in the stdout or stderr that have this format:
@@ -1016,7 +1225,9 @@ Maven version 3.3.9, Goals = clean, test;</li>
           </li>
           <li>Accountability</li>
         </ul>
-        <aside class="notes"></aside>
+        <aside class="notes">
+          <p>So generally the point of unit tests is to reduce the scope of the SUT into a small subset that can be tested in isolation. This way we can reduce the amount of variables that may affect results. A good way to achieve this without screwing up your code base is to gate your branches via testing on commits and merges. That way any feature that's in trunk revision goes through proper compliance before being merged with the master branch. We'll talk a little bit later about Pull request builds to illustrate this. The benefit of setting your projects up this way is that it creates, not only a built in feedback loop between QA and Dev, but it also enforces quality commits rather than policing your devs</p>
+        </aside>
       </section>
       
       <section>
@@ -1029,7 +1240,15 @@ Maven version 3.3.9, Goals = clean, test;</li>
           <li>Time to fix is expensive</li>
         </ul>
         <center><img src= "assets/images/Basic_build.png" style="border:none; background:none; width:60%"></center>
-        <aside class="notes"></aside>
+        <aside class="notes">
+          The old school way of doing this is to commit on nightlys, however this comes with some drawbacks.
+          <ul>
+            <li>It can create too much revision and reactionary rollbacks, which costs time and money</li>
+            <li>May not be aware until the next day so the feedback loop is widened</li>
+            <li>Again, it forces people to notify devs that the commited bad code and also it takes time to identify who broke it. Plus ya know, there's that whole public shaming aspect where as if the testing and accountability structure was built in, the shame would be isolated</li>
+            <li>lastly, it's a pain to fix in terms of time, money, and realignment across the team</li>
+          </ul>
+        </aside>
 
       </section>
 
@@ -1042,7 +1261,11 @@ Maven version 3.3.9, Goals = clean, test;</li>
           <li>Passed tests marked 'safe' and merged with QA build</li>
         </ol>
         <center><img src= "assets/images/PR_Build.png" style="border:none; background:none; width:60%"></center>
-         <aside class="notes"></aside>
+         <aside class="notes">
+<p>If we're trying to avoid rollbacks, costly feedback loops, and public shame, we can create an isolated build used for validation and testing</p> 
+<p>Once a commit is marked as 'safe' and with no merge conflicts, we can push it to the master branch</p>
+<p>We can also leverge Sauce Labs here to have an external system run the tests on the hosted grid, along with Jenkins to build and publish test results.</p>
+         </aside>
       </section>
 
       <section>
@@ -1051,7 +1274,9 @@ Maven version 3.3.9, Goals = clean, test;</li>
           <li>Create Test Automation as a build step with Sauce OnDemand plugin</li>
           <li>Triggers on every pull request</li>
           <li>If tests pass will automatically merge with testing build</li>
-        <aside class="notes"></aside>
+        <aside class="notes">
+          In the example I'm about to show you we use a GitHub hook into Jenkins that triggers off a build on every pull request. Jenkins will run a few shell scripts that deploy an isolated build of the app into a docker container, run tests, check for conflicts and publish test results from Sauce. After the merge occurs we can run another job to merge the branches and deploy to production
+        </aside>
       </section>
 
       <section>
@@ -1061,7 +1286,13 @@ Maven version 3.3.9, Goals = clean, test;</li>
           <li>Unit Test must pass</li>
           <li>All Functional Tests must pass</li>
         </ul>
-        <aside class="notes"></aside>
+        <aside class="notes">
+We want two types of tests to occur on every pull request.
+<ul>
+  <li>Our shallow unit tests, which if failed or don't pass coverage, will cause the build to fail</li>
+  <li>Second, we want a functional test to only occur if something on the frontend changes, that way we can reduce excessively testing the UI</li>
+</ul>
+        </aside>
       </section>
 </section>
       
@@ -1073,7 +1304,16 @@ Maven version 3.3.9, Goals = clean, test;</li>
           <li>Agile/DevOps: Aligns with 'TDD' framework, test plan for each 'sprint'</li>
           <li>Model-Based: Begins earliest in cycle i.e. design and architecture models</li>
         </ul>
-        <aside class="notes"></aside>
+        <aside class="notes">
+We've talked about shifting left throughout the day but here are a few specific models on how to approach the topic.
+<ul>
+  <li>Traditional V model of shift-left testing concentrates on shallow unit testing combined with integration testing. It comes under criticism because it implies a strict waterfall pattern of development which can create bottlenecks. However pushing the test to earlier in the cycle is still beneficial, even in a waterfall development pattern </li>
+  <li>Incremental, is a little closer to agile testing in that it implies iterative testing to coincide with frequent code pushes</li>
+  <li>Agile/DevOps aligns perfectly with what we've been talking about today. Code pushes are done in week-long or bi-weekly sprints, and testing is treated like part of the software development process</li>
+  <li>Model based is a little newer and is contingent upon executable requirements, in other words: waiting until software exists in order to begin testing causes a delay... so this form of testing focuses on the most crucical architectural or design methods with regards to software development and begins testing continously and immediately</li>
+</ul>
+<p>These four models can show the historical progression of shift left testing, and it's clear that in the future testing and development will become so symbotic that they'll be almost identical in terms of importance and execution.</p>
+        </aside>
       </section>
 
      
@@ -1086,31 +1326,18 @@ Maven version 3.3.9, Goals = clean, test;</li>
     <li>Use Breakpoints</li>
     <li>Separate Functional Tests from Performance Tests</li>
   </ul>
+  <aside class="notes">
+This is review for test run strategies
+<ul>
+  <li>avoid xPath or other brittle selectors</li>
+  <li>Increase cohesion within your team in order to avoid duplication</li>
+  <li>When debugging, use breakpoints in your code so that you can pinpoint when junk hit's the fan</li>
+  <li>Separate functional tests for frontend changes, and periodically run performance tests against your builds to compare results--this way you might be able to identify network issues, or client server roadblocks</li>
+</ul>
+  </aside>
 </section>
 
-<section data-state="lab">
-      <h3>Lab 4.1: Angular PR Build Demo</h3>
-<p>Pipeline:</p>
-            <ol>
-              <li>Assembles Docker Container</li>
-              <li>JS Cucumber + Protractor Selenium Framework </li>
-              <li>Pushes to Local Python Server</li>
-              <li>Jenkins Server Runs Test Jobs</li>
-              <li>After Merge, Deploys to EC2 (Prod)</li>
-            </ol>
-          
-        <aside class="notes">
-<ul>
-  <li>Jenkins URL: <a href>http://ec2-54-237-97-207.compute-1.amazonaws.com/login?from=%2F</a></li>
-  <li>User: jamest</li>
-  <li>Password: sauce123</li>
-  <li>Run se301_1_build</li>
-  <li>se301_2_test</li>
-  <li>fix test issues</li>
-  <li>se301_3_deploy</li>
-</ul>
-                    </aside>
-                  </section>
+
   <section>
     <section data-state="lab" data-transition="none">
       <h3>Lab 4.1: Angular PR Build Demo</h3>
@@ -1130,7 +1357,7 @@ Maven version 3.3.9, Goals = clean, test;</li>
 </section>
 <section data-state="lab" data-transition="none">
       <h3>Lab 4.1: Angular PR Build Demo</h3>
-      <center><img src= "assets/images/PRBuildDemo4.png" style="border:none; background:none; width:0%"></center>
+      <center><img src= "assets/images/PRBuildDemo4.png" style="border:none; background:none; width:100%"></center>
 </section>
 </section>
 
@@ -1139,9 +1366,9 @@ Maven version 3.3.9, Goals = clean, test;</li>
 <p>Build Steps:</p>
         <ol>
           <li>Add Feature to App</li>
-          <li>Run Build Test via Jenkins Job</li>
-          <li>Resolve Test Errors</li>
-          <li>Re-run Jenkins Job</li>
+          <li>Push to trunk and create pull request</li>
+          <li>Jenkins jobs kickoff, resolve test errors</li>
+          <li>Re-push and view Jenkins Console + SauceLabs tests</li>
           <li>Merge Branches</li>
           <li>Deploy to Production</li>
           </ol>
@@ -1151,15 +1378,7 @@ Maven version 3.3.9, Goals = clean, test;</li>
             </small>
          
           </div>
-        <aside class="notes">
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-                    </aside>
+       
                   </section>
                 
 
